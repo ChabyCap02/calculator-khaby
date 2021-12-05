@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--CSS-->
+        <link rel="stylesheet" href="css/estilo.css">
+        
+        <title>Calculadora</title>
+    </head>
+    <body onload="">
+        <div class="container" id="calculadora">
+            <div id="pantalla">
+
+                <div id="operacion"></div>
+                <div id="resultado"></div>
+                
+                
+            </div>
+            <div class="teclas">
+                <button id="borrar" onclick="reset()">C</button>
+                <button id="eliminar" onclick="eliminar()">DEL</button>
+                <button id="suma" onclick="sumar()">+</button>
+                <button id="siete" onclick="agregarNumero(this)">7</button>
+                <button id="ocho" onclick="agregarNumero(this)">8</button>
+                <button id="nueve" onclick="agregarNumero(this)">9</button>
+                <button id="menos" onclick="restar()">-</button>
+                <button id="cuatro" onclick="agregarNumero(this)">4</button>
+                <button id="cinco" onclick="agregarNumero(this)">5</button>
+                <button id="seis" onclick="agregarNumero(this)">6</button>
+                <button id="division" onclick="dividir()">/</button>
+                <button id="uno" onclick="agregarNumero(this)">1</button>
+                <button id="dos" onclick="agregarNumero(this)">2</button>
+                <button id="tres" onclick="agregarNumero(this)">3</button>
+                <button id="multiplo" onclick="multiplicar()">X</button>
+                <button id="cera" onclick="agregarNumero(this)">0</button>
+                <button id="punto" onclick="agregarNumero(this)">.</button>
+                <button id="igual" onclick="igual()">=</button>
+            </div>
+        </div>
+
+
+        <script src="js/app.js"></script>
+    </body>
+</html>
