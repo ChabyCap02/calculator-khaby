@@ -12,17 +12,21 @@ const agregarNumero = (tecla) => {
 //Funcion Suma
 
 let calculo = operacion.innerHTML.split(' ');
+let signo = true;
 const sumar = () => {
-    calculo
-    if(calculo[-1].trim() != '+'){    
+
+    
+    if(signo){
         calculo.push('+');
-        operacion.innerHTML += '+'
-    }else{
-        
-        calculo.length = calculo.length - 1;
+        operacion.innerHTML += ' + ';
         
     }
+    
     console.log(calculo)
+}
+
+const signo = () => {
+    
 }
 
 const restar = () => {
@@ -45,21 +49,17 @@ const igual = () => {
     
 
 
-    let resultado1 = eval(calculo)
-    resultado.innerHTML = resultado1
-    calculo.forEach(sumar)
+    let resultado1 = eval(operacion.innerHTML);
+    resultado.innerHTML = resultado1;
+    operacion.style.overflow = 'hidden';
+    
     
 }
-
-
-
-
-
 
 const reset  = () => {
     operacion.innerHTML = '';
     resultado.innerHTML = '';
-    suma = 0;
+    calculo = []
 
 }
 
