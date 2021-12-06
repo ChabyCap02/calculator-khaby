@@ -6,49 +6,44 @@ let resultado = document.getElementById('resultado')
 
 const agregarNumero = (tecla) => {
     operacion.innerHTML += tecla.innerHTML;
-    calculo.push(tecla.innerHTML)
+    calculo.push(tecla.innerHTML);
+    console.log(calculo);
 }
 
 //Funcion Suma
 
-let calculo = operacion.innerHTML.split(' ');
+let calculo = operacion.innerHTML.split('');
 let signo = true;
 const sumar = () => {
 
     
     if(signo){
         calculo.push('+');
-        operacion.innerHTML += ' + ';
+        operacion.innerHTML += '+';
         
     }
     
     console.log(calculo)
 }
 
-const signo = () => {
-    
-}
+
 
 const restar = () => {
-    
-    operacion.innerHTML += ' - ';
+    calculo.push('-');
+    operacion.innerHTML += '-';
 }
 
 const dividir = () => {
-    
-    operacion.innerHTML += ' / ';
+    calculo.push('/');
+    operacion.innerHTML += '/';
 }
 const multiplicar = () => {
-    
-    operacion.innerHTML += ' * ';
+    calculo.push('*');
+    operacion.innerHTML += '*';
 }
 
 //Funcion IGUal
 const igual = () => {
-    
-    
-
-
     let resultado1 = eval(operacion.innerHTML);
     resultado.innerHTML = resultado1;
     operacion.style.overflow = 'hidden';
@@ -64,9 +59,11 @@ const reset  = () => {
 }
 
 const eliminar = () => {
-
-    let operacion1
-    operacion1.innerHTML.substring(0, operacion.innerHTML.length - 1)
-    operacion.innerHTML = operacion1;
+    calculo.pop(calculo[-1])
+    console.log(calculo)
+    operacionR = calculo.join('');
+   
+    
+    operacion.innerHTML = operacionR
 }
 
