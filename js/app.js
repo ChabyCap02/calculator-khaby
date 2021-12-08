@@ -1,4 +1,6 @@
-
+//control de signo, si este esta activado se puede agregar
+let signo = false;
+let nNegativo = true
 
 //Pantalla
 let operacion =document.getElementById('operacion');
@@ -8,62 +10,72 @@ const agregarNumero = (tecla) => {
     operacion.innerHTML += tecla.innerHTML;
     calculo.push(tecla.innerHTML);
     console.log(calculo);
+    signo = true
 }
 
 //Funcion Suma
 
 let calculo = operacion.innerHTML.split('');
-let signo = true;
 const sumar = () => {
 
-    
-    if(signo){
+    if(signo == true){
         calculo.push('+');
-        operacion.innerHTML += '+';
-        
-    }
-    
-    console.log(calculo)
-}
-
+        operacion.innerHTML += '+'.repeat(1);
+        signo = false;
+    };
+    console.log(calculo);
+};
 
 
 const restar = () => {
-    calculo.push('-');
-    operacion.innerHTML += '-';
-}
-
+    if(signo == true || nNegativo == true){
+        calculo.push('-');
+        operacion.innerHTML += '-'.repeat(1);
+        signo = false;
+        nNegativo = false
+    };
+    console.log(calculo);
+};
+//Funcion para dividir
 const dividir = () => {
-    calculo.push('/');
-    operacion.innerHTML += '/';
-}
+    if(signo == true){
+        calculo.push('/');
+        operacion.innerHTML += '/'.repeat(1);
+        signo = false;
+    };
+    console.log(calculo);
+};
+//Funcion para multiplicar
 const multiplicar = () => {
-    calculo.push('*');
-    operacion.innerHTML += '*';
-}
+    if(signo == true){
+        calculo.push('+');
+        operacion.innerHTML += '+'.repeat(1);
+        signo = false;
+    };
+    console.log(calculo);
+};
 
 //Funcion IGUal
 const igual = () => {
     let resultado1 = eval(operacion.innerHTML);
     resultado.innerHTML = resultado1;
-    operacion.style.overflow = 'hidden';
     
-    
-}
+     
+};
 
 const reset  = () => {
     operacion.innerHTML = '';
     resultado.innerHTML = '';
-    calculo = []
+    calculo = [];
+    signo = false;
 
 }
 
 const eliminar = () => {
-    calculo.pop(calculo[-1])
-    console.log(calculo)
+    calculo.pop(calculo[-1]);
+    console.log(calculo);
     operacionR = calculo.join('');
-   
     
-    operacion.innerHTML = operacionR
+    operacion.innerHTML = operacionR;
 }
 
