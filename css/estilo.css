@@ -32,21 +32,19 @@ div#pantalla{
     font-size: 1.5em;
     background-color: white;
     border-radius: 5px;
-    height: 70px;
+    height: 80px;
     overflow-x: hidden;
 
 }
-div#pantalla div#operacion{
+div#pantalla div#operacion{  
     font-size: 1.5em;
-    height: 42px;
-    overflow-x: hidden;
 
 }
 
 div#pantalla div#resultado{
+    
     font-size: 1em;
-    height: 28px;
-    overflow-x: hidden;
+    height:30px;
 
 }
 
@@ -80,7 +78,12 @@ div.teclas button{
     box-shadow: 3px 3px rgb(7, 2, 83);
 
 }
+div.teclas button:hover{
+    background-color: rgb(2, 83, 40);
+
+}
 div.teclas button:active{
     background-color: rgb(13, 41, 26);
+    color: white;
 }
 

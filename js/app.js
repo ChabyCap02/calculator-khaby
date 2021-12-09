@@ -1,72 +1,129 @@
+//control de signo, si este esta activado se puede agregar
+let signo = false;
+let nNegativo = true;
+
 
 
 //Pantalla
 let operacion =document.getElementById('operacion');
 let resultado = document.getElementById('resultado')
 
+
 const agregarNumero = (tecla) => {
     operacion.innerHTML += tecla.innerHTML;
-    calculo.push(tecla.innerHTML)
+    calculo.push(tecla.innerHTML);
+    console.log(calculo);
+    signo = true
 }
 
-//Funcion Suma
+let calculo = operacion.innerHTML.split('');
 
-let calculo = operacion.innerHTML.split(' ');
-let signo = true;
+//Funcion Sumar
+
 const sumar = () => {
-
     
-    if(signo){
+    if(signo == true ){
         calculo.push('+');
-        operacion.innerHTML += ' + ';
+        signo = false;
+        operacion.innerHTML += '+'.repeat(1);   
+
+    }else if(signo == false && nNegativo == false){
+        calculo.pop(calculo[-1]);
+        calculo.push('+');
         
+        if(calculo[0] == '+'){
+            calculo[0] = ''
+
+        }
+        operacionR = calculo.join('');
+        operacion.innerHTML = operacionR;
     }
-    
-    console.log(calculo)
-}
+    console.log(calculo);
+};
 
-const signo = () => {
-    
-}
-
+//Funcion Restar
 const restar = () => {
-    
-    operacion.innerHTML += ' - ';
-}
+    if(signo == true || nNegativo == true){
+        calculo.push('-');
+        operacion.innerHTML += '-'.repeat(1);
+        signo = false;
+        nNegativo = false
+    }else if(signo == false){
+        calculo.pop(calculo[-1]);
+        calculo.push('-');
+        operacionR = calculo.join('');
+        operacion.innerHTML = operacionR;
 
+    };
+    console.log(calculo);
+};
+
+//Funcion para dividir
 const dividir = () => {
     
-    operacion.innerHTML += ' / ';
-}
+    if(signo == true){
+        calculo.push('/');
+        operacion.innerHTML += '/'.repeat(1);
+        signo = false;
+    }else if(signo == false && nNegativo == false){
+        calculo.pop(calculo[-1]);
+        calculo.push('/');
+
+        if(calculo[0] == '/'){
+            calculo[0] = '-'
+        }
+
+        operacionR = calculo.join('');
+        operacion.innerHTML = operacionR;
+
+    };
+    console.log(calculo);
+};
+//Funcion para multiplicar
 const multiplicar = () => {
-    
-    operacion.innerHTML += ' * ';
-}
+    if(signo == true){
+        calculo.push('*');
+        operacion.innerHTML += '*'.repeat(1);
+        signo = false;
+    }else if(signo == false && nNegativo == false){
+        calculo.pop(calculo[-1]);
+        calculo.push('*');
+
+        if(calculo[0] == '*'){
+            calculo[0] = '-'
+        }
+
+        operacionR = calculo.join('');
+        operacion.innerHTML = operacionR;
+
+    };
+    console.log(calculo);
+};
 
 //Funcion IGUal
 const igual = () => {
-    
-    
-
-
+    if(signo == false){
+        resultado.innerHTML = 'isNaN'
+    }
     let resultado1 = eval(operacion.innerHTML);
     resultado.innerHTML = resultado1;
-    operacion.style.overflow = 'hidden';
+    console.log(typeof calculo); 
     
-    
-}
+};
 
 const reset  = () => {
     operacion.innerHTML = '';
     resultado.innerHTML = '';
-    calculo = []
+    calculo = [];
+    signo = false;
 
 }
 
 const eliminar = () => {
-
-    let operacion1
-    operacion1.innerHTML.substring(0, operacion.innerHTML.length - 1)
-    operacion.innerHTML = operacion1;
+    calculo.pop(calculo[-1]);
+    console.log(calculo);
+    operacionR = calculo.join('');
+    
+    operacion.innerHTML = operacionR;
 }
 
